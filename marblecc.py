@@ -1,6 +1,6 @@
 from tkinter import *
 
-# Menú principal
+
 def calculate():
     global screen2
     screen2 = Toplevel(screen)
