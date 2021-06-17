@@ -1,6 +1,18 @@
 from tkinter import *
+import pandas as pd
+
+# Comprobamos la existencia del archivo "marble.csv"
+try:
+    df = pd.read_csv("marble.csv")
+
+# Si el programa no encuentra el archivo "marble.csv", lo creará automáticamente con las columnas ya establecidas
+except:
+
+    df = pd.DataFrame({"Nombre": [""], "Precio": [""]})
+    df.to_csv("marble.csv")
 
 
+# Calculadora
 def calculate():
     global screen2
     screen2 = Toplevel(screen)
@@ -9,7 +21,7 @@ def calculate():
 
     marble = Label(screen2, text="Seleccione tipo de mármol")
     marble.pack()
-    marble_list = ["Negro Brasil", "Calacata", "Carrara" "Portoro"]
+    marble_list = []
     clicked = StringVar()
     clicked.set(marble_list[0])
 
@@ -21,6 +33,7 @@ def calculate():
     qty_input.pack()
 
 
+# Ventana de administrador
 def admin():
     global screen1
     screen1 = Toplevel(screen)
